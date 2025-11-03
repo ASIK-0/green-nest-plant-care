@@ -1,0 +1,122 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 18,
+    "rating": 4.8,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "Snake Plant is a resilient indoor plant known for its ability to thrive even in low light and irregular watering conditions. It helps purify the air by removing toxins and adds a modern, elegant touch to any room. Perfect for beginners and busy individuals who want greenery without the hassle.",
+    "image": "https://i.postimg.cc/0QNx6vqB/snake-plant.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Peace Lily",
+    "category": "Flowering Plant",
+    "price": 25,
+    "rating": 4.9,
+    "availableStock": 8,
+    "careLevel": "Medium",
+    "description": "Peace Lily is one of the most graceful indoor plants, famous for its lush green leaves and elegant white flowers. It helps to purify indoor air by absorbing harmful pollutants and thrives best in moderate light with regular watering. Its serene beauty brings calmness to any environment.",
+    "image": "https://i.postimg.cc/fT3N9H4h/peace-lily.jpg",
+    "providerName": "Leafy Haven"
+  },
+  {
+    "plantId": 3,
+    "plantName": "Aloe Vera",
+    "category": "Medicinal Plant",
+    "price": 15,
+    "rating": 4.7,
+    "availableStock": 20,
+    "careLevel": "Easy",
+    "description": "Aloe Vera is a low-maintenance plant known for its healing and soothing properties. Its thick, fleshy leaves store water, making it drought-tolerant and perfect for those who often forget to water their plants. It looks great on windowsills and provides natural skincare benefits.",
+    "image": "https://i.postimg.cc/FRzj7m2L/aloe-vera.jpg",
+    "providerName": "Nature's Corner"
+  },
+  {
+    "plantId": 4,
+    "plantName": "Spider Plant",
+    "category": "Air Purifier",
+    "price": 20,
+    "rating": 4.6,
+    "availableStock": 15,
+    "careLevel": "Easy",
+    "description": "Spider Plant is one of the easiest plants to grow indoors. Its long, arching leaves with white stripes make it visually attractive, and it helps improve air quality by absorbing carbon monoxide and other pollutants. It grows quickly and produces baby plants that can be replanted.",
+    "image": "https://i.postimg.cc/k5mcvVgD/spider-plant.jpg",
+    "providerName": "Green Nest"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Areca Palm",
+    "category": "Indoor Palm",
+    "price": 35,
+    "rating": 4.9,
+    "availableStock": 6,
+    "careLevel": "Medium",
+    "description": "Areca Palm adds a tropical vibe to any indoor space. Its elegant feathery fronds create a refreshing look and help to humidify and purify the air naturally. It requires bright, indirect light and regular watering. A great choice for spacious rooms or offices.",
+    "image": "https://i.postimg.cc/fRnTtM1Y/areca-palm.jpg",
+    "providerName": "Oxygen Hub"
+  },
+  {
+    "plantId": 6,
+    "plantName": "ZZ Plant",
+    "category": "Low Light Plant",
+    "price": 28,
+    "rating": 4.8,
+    "availableStock": 9,
+    "careLevel": "Easy",
+    "description": "ZZ Plant is a popular choice for homes and offices because it thrives in low light and needs minimal watering. Its glossy green leaves give a fresh, polished look, and it can survive neglect for weeks. It’s a perfect pick for anyone new to plant care.",
+    "image": "https://i.postimg.cc/ZnR2phd1/zz-plant.jpg",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 7,
+    "plantName": "Money Plant",
+    "category": "Vine Plant",
+    "price": 14,
+    "rating": 4.5,
+    "availableStock": 18,
+    "careLevel": "Easy",
+    "description": "Money Plant is believed to bring positive energy and prosperity. It grows fast in both soil and water, making it perfect for decorative jars or hanging pots. Its heart-shaped leaves add freshness and beauty to any corner of your home or office.",
+    "image": "https://i.postimg.cc/fR2VZ8V1/money-plant.jpg",
+    "providerName": "Leafy Haven"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Rubber Plant",
+    "category": "Foliage Plant",
+    "price": 30,
+    "rating": 4.7,
+    "availableStock": 7,
+    "careLevel": "Medium",
+    "description": "Rubber Plant is a stunning indoor plant with large, glossy leaves that can grow tall if given enough space. It helps clean the air and adds a touch of modern elegance to your interior. It prefers bright, indirect sunlight and occasional watering.",
+    "image": "https://i.postimg.cc/3wrq4f9G/rubber-plant.jpg",
+    "providerName": "Oxygen Hub"
+  },
+  {
+    "plantId": 9,
+    "plantName": "Chinese Evergreen",
+    "category": "Decorative Plant",
+    "price": 22,
+    "rating": 4.6,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "Chinese Evergreen is one of the most durable indoor plants with colorful, patterned leaves. It can survive in low light and humid environments, making it ideal for offices or bedrooms. Its beauty and adaptability make it a long-term favorite among plant lovers.",
+    "image": "https://i.postimg.cc/V6bP5sQF/chinese-evergreen.jpg",
+    "providerName": "Nature's Corner"
+  },
+  {
+    "plantId": 10,
+    "plantName": "Boston Fern",
+    "category": "Hanging Plant",
+    "price": 24,
+    "rating": 4.8,
+    "availableStock": 5,
+    "careLevel": "Hard",
+    "description": "Boston Fern is a beautiful hanging plant with lush green fronds that create a soft, graceful look. It loves humidity and indirect sunlight, making it ideal for bathrooms or shaded balconies. Regular misting keeps it healthy and vibrant all year long.",
+    "image": "https://i.postimg.cc/ZnJznzcf/boston-fern.jpg",
+    "providerName": "Green Nest"
+  }
+]

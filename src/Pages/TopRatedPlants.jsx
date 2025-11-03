@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Plants = () => {
+const TopRatedPlants = () => {
     return (
         <div>
-
+            
         </div>
     );
 };
 
-export default Plants;
+export default TopRatedPlants;

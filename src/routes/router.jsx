@@ -3,6 +3,8 @@ import Root from "../Layout/Root";
 import Plants from "../Pages/Plants";
 import Profile from "../Pages/Profile";
 import Home from "../Pages/Home";
+import Signup from "../Pages/Signup";
+import Signin from "../Pages/Signin";
 
 export const router = createBrowserRouter(
     [
@@ -21,6 +23,14 @@ export const router = createBrowserRouter(
                 {
                     path: '/profile',
                     element: <Profile/>
+                },
+                {
+                    path: '/signin',
+                    element: <Signin/>
+                },
+                {
+                    path: '/signup',
+                    element: <Signup/>
                 }
             ]
         }

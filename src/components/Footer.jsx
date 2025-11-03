@@ -5,17 +5,17 @@ import { Link } from 'react-router';
 const Footer = () => {
     return (
         <div>
-            <footer className="flex flex-col justify-between bg-green-950 text-neutral-content p-10 px-5 md:px-[80px]">
+            <footer className="flex flex-col justify-between bg-green-950 text-neutral-content p-10 px-3 md:px-[70px]">
                 <div className='flex justify-between '>
                     <aside>
                         <div className='flex items-center gap-2'>
-                            <img className='w-[40px] h-[40px] md:w-[50px]  md:h-[50px]' src={logo} alt="" />
+                            <img className='w-[39px] h-[39px] md:w-[50px]  md:h-[50px]' src={logo} alt="" />
                             <div className='text-nowrap'>
-                                <h1 className='text-xl md:text-2xl font-bold text-green-500'>GREEN NEST</h1>
-                                <h4 className='text-lg text-gray-500 md:text-xl'>PLANT STORE</h4>
+                                <h1 className='text-lg md:text-2xl font-bold text-green-500'>GREEN NEST</h1>
+                                <h4 className='text-[12px] text-gray-500 md:text-xl'>PLANT STORE</h4>
                             </div>
                         </div>
-                        <div className='space-x-3'>
+                        <div className='space-x-3 mt-2.5'>
                             <h3 className='text-gray-400 text-xl'>Quick Links</h3>
                             <Link to={'/'} className='hover:text-green-600'>About</Link>
                             <Link to={'/'} className='hover:text-green-600'>Contact</Link>
@@ -24,7 +24,7 @@ const Footer = () => {
                     </aside>
                     <nav>
                         <h6 className="footer-title">Social</h6>
-                        <div className="grid grid-flow-col gap-4">
+                        <div className="flex flex-col md:flex-row gap-4">
                             <a>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <div className='mt-6 border-t border-gray-700 pt-4 text-center text-gray-400 text-sm'></div>
-                    <p className='text-center'>Copyright © 2025 - GreenNest. All rights reserved.</p>
+                    <p className='text-[12px] text-center'>Copyright © 2025 - GreenNest. All rights reserved.</p>
                 </div>
             </footer>
         </div>
