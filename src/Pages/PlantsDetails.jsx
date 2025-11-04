@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useParams } from 'react-router';
+import { toast } from 'react-toastify';
 
 const PlantsDetails = () => {
     const { plants } = useContext(AuthContext);
@@ -11,9 +12,14 @@ const PlantsDetails = () => {
     }
 
     const plant = plants.find(p => p.plantId === Number(id));
-    console.log(plant)
     if (!plant) {
         return <h1>Plant not found</h1>;
+    }
+
+    const handleBooking = (e) => {
+        toast.success("Booking Successfull")
+        e.preventDefault()
+        e.target.reset()
     }
 
     return (
@@ -34,13 +40,14 @@ const PlantsDetails = () => {
             </div>
             <div className=' gap-10 space-y-5 bg-green-200 shadow-lg rounded-2xl px-3 md:px-[30px] mx-3 md:mx-[70px] py-[41px]'>
                 <h1 className='font-bold text-5xl'>Book Consulation</h1>
-                <form>
+                <form onSubmit={handleBooking}>
                     <label className="label text-black text-xl font-semibold">Name</label> <br />
-                    <input type="text" className="input input-xl md:w-1/3" placeholder="Name" /><br />
+                    <input type="text" required className="input input-xl md:w-1/3" placeholder="Name" /><br />
                     <label className="label  text-black text-xl font-semibold">Email</label><br />
-                    <input type="email" className="input  input-xl md:w-1/3" placeholder="Email" />
+                    <input type="email" required className="input  input-xl md:w-1/3" placeholder="Email" />
+                    <br />
+                    <button className='btn mt-2 px-5 py-6 rounded-sm hover:bg-amber-800 bg-green-500 text-white text-xl font-semibold'>Book Now</button>
                 </form>
-                <button className='btn px-5 py-6 rounded-sm hover:bg-amber-800 bg-green-500 text-white text-xl font-semibold'>Book Now</button>
             </div>
         </div>
     );

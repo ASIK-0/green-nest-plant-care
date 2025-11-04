@@ -5,7 +5,6 @@ import { Link } from 'react-router';
 const TopRatedPlants = () => {
     const { plants } = useContext(AuthContext);
     const top6 = plants.slice(0, 6);
-    console.log(top6)
     return (
         <div className='text-center space-y-4'>
             <h1 className='text-3xl md:text-7xl font-bold'>Top Rated Indoor Plants</h1>

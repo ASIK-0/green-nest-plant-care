@@ -11,6 +11,7 @@ const PlantCaretips = () => {
                         <h2 className='text-3xl font-semibold text-green-900'>Watering</h2>
                         <p>Water when the top inch of soil feels dry. Avoid overwatering.</p>
                     </div>
+                    
                     <div className='p-5 space-y-2.5 shadow-sm hover:shadow-lg transition bg-white rounded-lg'>
                         <img className='rounded-2xl' src="https://i.pinimg.com/736x/b8/36/8d/b8368d20bea467d893e92b2b9698d9f1.jpg" alt="" />
                         <h2 className='text-3xl font-semibold text-green-900'>Sunlight</h2>

@@ -1,17 +1,20 @@
 
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { FaEye } from "react-icons/fa";
 
 import { IoEyeOff } from "react-icons/io5";
-import { use } from "react";
+import { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const Signup = () => {
+    const [show, setShow] = useState(false)
+    const [error, setError] = useState('')
+    const { createUser, setUser } = use(AuthContext);
+    const navigate = useNavigate();
 
-    const { createUser, setUser } = use(AuthContext)
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -20,6 +23,30 @@ const Signup = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+
+        const uppercasePattern = /[A-Z]/;
+        const lowercasePattern = /[a-z]/;
+        const lengthPattern = /.{6,}/;
+
+        if (!uppercasePattern.test(password)) {
+            setError("Password must contain at least one uppercase letter.");
+            return;
+        }
+
+        if (!lowercasePattern.test(password)) {
+            setError("Password must contain at least one lowercase letter.");
+            return;
+        }
+
+        if (!lengthPattern.test(password)) {
+            setError("Password must be at least 6 characters long.");
+            return;
+        }
+
+
+        // reset error
+        setError("")
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -29,18 +56,20 @@ const Signup = () => {
                 }).then(() => {
                     setUser({ ...user, displayName: name, photoURL: photo });
                     toast.success("Account created successfully!");
+                    navigate("/")
                 });
             })
             .catch((error) => {
                 const errorMessage = error.message;
-                console.log(errorMessage)
+                // console.log(errorMessage)
+                toast.error(errorMessage)
+                setError(errorMessage)
             })
 
     }
 
     return (
         <div className="min-h-[96vh] flex items-center justify-center bg-gradient-to-br from-lime-500 via-green-700 to-green-800 relative overflow-hidden">
-            {/* Animated floating circles */}
             <div className="absolute inset-0">
                 <div className="absolute w-72 h-72 bg-pink-400/30 rounded-full blur-2xl top-10 left-10 animate-pulse"></div>
                 <div className="absolute w-72 h-72 bg-purple-400/30 rounded-full blur-2xl bottom-10 right-10 animate-pulse"></div>
@@ -101,12 +130,14 @@ const Signup = () => {
                                     Password
                                 </label>
                                 <input
-                                    type={"text"}
+                                    type={show ? "text" : "password"}
                                     name="password"
                                     required
                                     placeholder="Enter a new password"
                                     className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400"
                                 />
+                                <span onClick={() => { setShow(!show) }} className="absolute right-[8px] top-[36px] cursor-pointer z-50 ">
+                                    {show ? <FaEye /> : <IoEyeOff />}</span>
                             </div>
 
                             <button type="submit" className="my-btn">
@@ -117,13 +148,16 @@ const Signup = () => {
                                 <p className="text-sm text-white/80">
                                     Already have an account?{" "}
                                     <Link
-                                        to="/signup"
+                                        to="/signin"
                                         className="text-pink-300 hover:text-white font-medium underline"
                                     >
                                         Sign in
                                     </Link>
                                 </p>
                             </div>
+                            {
+                                error && <p className="text-yellow-500 text-xl">{error}</p>
+                            }
                         </form>
                     </div>
                 </div>

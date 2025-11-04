@@ -6,32 +6,33 @@ import Home from "../Pages/Home";
 import Signup from "../Pages/Signup";
 import Signin from "../Pages/Signin";
 import PlantsDetails from "../Pages/PlantsDetails";
+import PrivateRoute from "../context/PrivateRoute";
 
 export const router = createBrowserRouter(
     [
         {
             path: '/',
-            element: <Root/>,
+            element: <Root />,
             children: [
                 {
                     index: true,
-                    element: <Home/>
+                    element: <Home />
                 },
                 {
                     path: '/plants',
-                    element: <Plants/>
+                    element: <Plants />
                 },
                 {
                     path: '/profile',
-                    element: <Profile/>
+                    element: <PrivateRoute><Profile /></PrivateRoute>
                 },
                 {
                     path: '/signin',
-                    element: <Signin/>
+                    element: <Signin />
                 },
                 {
                     path: '/signup',
-                    element: <Signup/>
+                    element: <Signup />
                 },
                 {
                     path: '/*',
@@ -39,7 +40,9 @@ export const router = createBrowserRouter(
                 },
                 {
                     path: "/plantsDetails/:id",
-                    element: <PlantsDetails></PlantsDetails>
+                    element: <PrivateRoute>
+                        <PlantsDetails></PlantsDetails>
+                    </PrivateRoute>
                 }
             ]
         }

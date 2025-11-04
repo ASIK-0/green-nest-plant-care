@@ -1,34 +1,68 @@
-import { use } from "react";
-import { Link } from "react-router";
+import { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
+
+
+
 
 const Signin = () => {
-    const { signIn } = use(AuthContext)
+    const [show, setShow] = useState(false)
+    const [error, setError] = useState("");
+    const [email, setEmail] = useState("");
+    const { signIn, googleSingIn, setUser, user, resetPassword  } = use(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const handleSignin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
         signIn(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user)            })
+                // console.log(user)
+                toast.success("Login Successfull")
+                navigate(`${location.state ? location.state : "/"}`)
+            })
             .catch((error) => {
-                console.log(error.message);
+                // console.log(error.message);
+                setError(error.code)
             });
     };
 
     const handleGoogleSignin = () => {
-    };
-
+        googleSingIn()
+            .then((result) => {
+                const user = result.user;
+                // console.log(user)
+                setUser(result.user);
+                toast.success("Login Successfull")
+                navigate(`${location.state ? location.state : "/"}`)
+            })
+            .catch((error) => {
+                // console.log(error.message)
+                setError(error.message)
+            });
+    }
     const handleForgetPassword = () => {
+
+        resetPassword(email)
+        .then(()=>{
+            window.location.href="https://mail.google.com/mail/u/0/#inbox"
+            
+        })
+        .catch(error =>{
+            toast.error(error.message)
+        })
     };
 
 
     return (
         <div className="min-h-[calc(100vh-20px)] flex items-center justify-center bg-gradient-to-br from-lime-500 via-green-700 to-green-800 relative overflow-hidden">
-            {/* Animated glow orbs */}
             <div className="absolute inset-0">
                 <div className="absolute w-72 h-72 bg-purple-400/30 rounded-full blur-xl top-10 left-10 animate-pulse"></div>
                 <div className="absolute w-72 h-72 bg-blue-400/30 rounded-full blur-xl bottom-10 right-10 animate-pulse"></div>
@@ -36,7 +70,6 @@ const Signin = () => {
 
             <div>
                 <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-40 p-6 lg:p-10 text-white">
-                    {/* Left section */}
                     <div className="max-w-lg text-center lg:text-left">
                         <h1 className="text-5xl font-extrabold drop-shadow-lg">
                             Welcome Back
@@ -45,8 +78,6 @@ const Signin = () => {
                             Log in to continue your plant journey. Keep your garden alive, one leaf at a time. 🍃.
                         </p>
                     </div>
-
-                    {/* Login card */}
                     <div className="w-full max-w-md backdrop-blur-lg bg-white/10 border border-white/20 shadow-2xl rounded-2xl p-8">
                         <form onSubmit={handleSignin} className="space-y-5">
                             <h2 className="text-2xl font-semibold mb-2 text-center text-white">
@@ -54,23 +85,30 @@ const Signin = () => {
                             </h2>
                             <div>
                                 <label className="block text-sm mb-1">Email</label>
-                                <input
+                                <input onChange={(e) => setEmail(e.target.value)}
                                     type="email"
                                     name="email"
+                                    required
                                     placeholder="example@email.com"
                                     className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 />
                             </div>
 
                             <div className="relative">
-                                <label className="block text-sm mb-1">Password</label>
+                                <label className="block text-sm font-medium mb-1">
+                                    Password
+                                </label>
                                 <input
-                                    type={"password"}
+                                    type={show ? "text" : "password"}
                                     name="password"
-                                    placeholder="Enter Your Password"
-                                    className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                                    required
+                                    placeholder="Enter a new password"
+                                    className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400"
                                 />
+                                <span onClick={() => { setShow(!show) }} className="absolute right-[8px] top-[36px] cursor-pointer z-50 ">
+                                    {show ? <FaEye /> : <IoEyeOff />}</span>
                             </div>
+
 
                             <button
                                 className="hover:underline cursor-pointer"
@@ -79,7 +117,7 @@ const Signin = () => {
                             >
                                 Forget password?
                             </button>
-
+                            {error && <p className="text-yellow-500 text-md">{error}</p>}
                             <button type="submit" className="my-btn">
                                 Login
                             </button>

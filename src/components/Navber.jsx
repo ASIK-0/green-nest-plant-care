@@ -36,13 +36,13 @@ const Navber = () => {
                     </ul>
                 </div>
 
-                <div className='flex items-center gap-2'>
+                <NavLink to={'/'} className='flex items-center gap-2'>
                     <img className='w-[30px] h-[30px] md:w-[50px]  md:h-[50px]' src={logo} alt="" />
                     <div className='text-nowrap'>
                         <h1 className='text-lg md:text-4xl font-bold text-green-700'>GREEN NEST</h1>
                         <h4 className='text-[12px] md:text-2xl'>PLANT STORE</h4>
                     </div>
-                </div>
+                </NavLink>
             </div>
             <div className="flex-1 flex justify-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
