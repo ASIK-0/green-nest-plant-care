@@ -29,7 +29,22 @@ const experts = [
 
 const GreenExpert = () => {
     return (
-        <div></div>
+        <div className="max-w-6xl mx-auto px-4 py-8">
+            <h2 className='text-3xl md:text-7xl font-bold text-center mb-8'>Meet Our Green Experts</h2>
+            <div className='grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                {experts.map(expert => (
+                    <div key={expert.id} className='bg-white shadow-lg rounded-lg p-4 text-center'>
+                        <img
+                            src={expert.image}
+                            alt={expert.name}
+                            className='w-full h-48 object-cover rounded-lg mb-4'
+                        />
+                        <h3 className='text-xl font-semibold mb-2'>{expert.name}</h3>
+                        <p className='text-gray-600 text-sm'>{expert.specialization}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 
