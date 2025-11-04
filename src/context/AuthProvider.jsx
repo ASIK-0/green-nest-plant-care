@@ -6,7 +6,15 @@ import app from '../firebase/firebase.config';
 const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    console.log(user)
+    const [plants, setAllPlants] = useState([])
+
+    useEffect(()=>{
+        fetch("/plants.json")
+        .then(res => res.json())
+        .then(data => {
+            setAllPlants(data)
+        })
+    },[])
 
     const createUser = (email, password, name, photo) =>{
         return createUserWithEmailAndPassword(auth, email, password)
@@ -31,10 +39,12 @@ const AuthProvider = ({children}) => {
 
     const authInfo = {
         user,
+        plants,
         setUser,
         createUser,
         logOut,
-        signIn
+        signIn,
+        
     }
 
 

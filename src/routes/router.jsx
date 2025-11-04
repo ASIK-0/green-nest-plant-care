@@ -5,6 +5,7 @@ import Profile from "../Pages/Profile";
 import Home from "../Pages/Home";
 import Signup from "../Pages/Signup";
 import Signin from "../Pages/Signin";
+import PlantsDetails from "../Pages/PlantsDetails";
 
 export const router = createBrowserRouter(
     [
@@ -31,6 +32,14 @@ export const router = createBrowserRouter(
                 {
                     path: '/signup',
                     element: <Signup/>
+                },
+                {
+                    path: '/*',
+                    element: <h2 className="font-bold text-4xl md:text-7xl text-center my-[100px]">Page Not Fount</h2>
+                },
+                {
+                    path: "/plantsDetails/:id",
+                    element: <PlantsDetails></PlantsDetails>
                 }
             ]
         }
